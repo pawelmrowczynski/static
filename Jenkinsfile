@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Tidy up html') {
+              steps {
+                  sh 'tidy -q -e *.html'
+              }
+         }
         stage('Upload to AWS')
         {
             steps {
